@@ -7,7 +7,7 @@ const SetupPage = async () => {
     const profile = await initialProfile();
 
     if(!profile){
-        redirect("/sign-up/")
+        redirect("/sign-in/")
     }
 
     const server = await db.server.findFirst({
@@ -22,7 +22,7 @@ const SetupPage = async () => {
 
     if(server){
         return (
-            redirect(`/server/${server.id}`)
+            redirect(`/servers/${server.id}`)
         )
     }
 
