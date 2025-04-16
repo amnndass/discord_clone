@@ -21,6 +21,9 @@ export const MembersModal = () => {
     const isModalOpen = isOpen && type === "members";
     const { server } = data as { server: ServerWithMembersWithProfiles };
 
+    console.log("here"+server);
+    console.log("here1"+data.server);
+
  
 
     return(

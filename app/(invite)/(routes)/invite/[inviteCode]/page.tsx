@@ -5,16 +5,15 @@ import { RedirectToSignIn } from "@clerk/nextjs";
 import { db } from "@/lib/db";
 
 interface InviteCodePageProps {
-    params : {
+    params : Promise<{
         inviteCode: string;
-    };
+    }>;
 };
 
-const InviteCodePage = async ({
-    params
-}: InviteCodePageProps) => {
+const InviteCodePage = async (props: InviteCodePageProps) => {
+    const params = await props.params;
     const profile = await currentProfile();
-    
+
     if (!profile) {
         return <RedirectToSignIn />
     }
