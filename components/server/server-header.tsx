@@ -23,9 +23,13 @@ export const ServerHeader = ({
     role
 }: ServerHeaderProps) => {
     const { onOpen } = useModal();
+    //console.log("here", role);
  
     const isAdmin = role === MemberRole.ADMIN;
-    const isModerator = isAdmin || MemberRole.MODERATOR;
+    const isModerator = isAdmin || role === MemberRole.MODERATOR;
+
+    // console.log("admin", isAdmin);
+    // console.log("moderator", isModerator);
 
     return (
         <DropdownMenu>
