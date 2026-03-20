@@ -4,9 +4,15 @@ import { ChannelType } from "@prisma/client";
 import { db } from "@/lib/db";
 import { currentProfile } from "@/lib/current-profile";
 import { ServerHeader } from "./server-header";
+import { ScrollArea } from "@radix-ui/react-scroll-area";
+import { ServerSearch } from "./server-search";
 
 interface serverSidebarProps {
     serverId: string;
+}
+
+const iconMap = {
+    
 }
 
 export const ServerSidebar = async ({
@@ -57,6 +63,11 @@ export const ServerSidebar = async ({
                 server={server}
                 role={role}
             />
+            <ScrollArea className="flex-1 px-3">
+                <div className="mt-2">
+                    <ServerSearch />
+                </div>
+            </ScrollArea>
         </div>
     )
 }
